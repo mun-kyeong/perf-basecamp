@@ -38,6 +38,10 @@ module.exports = {
         }
       },
       {
+        test: /\.(mp4|webm|ogg)$/,
+        type: 'asset/resource'
+      },
+      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader']
       },
