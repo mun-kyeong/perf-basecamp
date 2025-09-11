@@ -1,18 +1,16 @@
 import styles from './FeatureItem.module.css';
-
-type FeatureItemProps = {
+interface FeatureItemProps {
   title: string;
-  imageSrc: string;
-};
-
-const FeatureItem = ({ title, imageSrc }: FeatureItemProps) => {
+  webmSrc: string;
+  mp4Src: string;
+}
+const FeatureItem = ({ title, webmSrc, mp4Src }: FeatureItemProps) => {
   return (
     <div className={styles.featureItem}>
       <video className={styles.featureImage} autoPlay loop muted playsInline>
-        <source src={imageSrc.replace(/\.gif$/, '.webm')} type="video/webm" />
-        <source src={imageSrc.replace(/\.gif$/, '.mp4')} type="video/mp4" />
-        {/* fallback for very old browsers */}
-        <img src={imageSrc.replace(/\.gif$/, '.jpg')} alt="FeatureItem" />
+        <source src={webmSrc} type="video/webm" />
+        <source src={mp4Src} type="video/mp4" />
+        브라우저가 동영상을 지원하지 않습니다.
       </video>
       <div className={styles.featureTitleBg}></div>
       <h4 className={styles.featureTitle}>{title}</h4>

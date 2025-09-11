@@ -6,6 +6,10 @@ import findMP4 from '../../assets/images/find.mp4';
 import freeMP4 from '../../assets/images/free.mp4';
 import trendingMP4 from '../../assets/images/trending.mp4';
 
+import findWebm from '../../assets/images/find.webm';
+import freeWebm from '../../assets/images/free.webm';
+import trendingWebm from '../../assets/images/trending.webm';
+
 import heroImage1920_webp from '../../assets/images/hero/hero-1920.webp';
 import heroImage1280_webp from '../../assets/images/hero/hero-1280.webp';
 import heroImage768_webp from '../../assets/images/hero/hero-768.webp';
@@ -82,9 +86,9 @@ const Home = () => {
         <div className={styles.featureSectionWrapper}>
           <h2 className={styles.featureTitle}>Features</h2>
           <div className={styles.featureItemContainer}>
-            <FeatureItem title="See trending gif" imageSrc={trendingMP4} />
-            <FeatureItem title="Find gif for free" imageSrc={findMP4} />
-            <FeatureItem title="Free for everyone" imageSrc={freeMP4} />
+            <FeatureItem title="See trending gif" webmSrc={trendingWebm} mp4Src={trendingMP4} />
+            <FeatureItem title="Find gif for free" mp4Src={findMP4} webmSrc={findWebm} />
+            <FeatureItem title="Free for everyone" mp4Src={freeMP4} webmSrc={freeWebm} />
           </div>
           <Link to="/search">
             <button className={styles.linkButton}>start search</button>
