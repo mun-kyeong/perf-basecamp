@@ -8,8 +8,8 @@ module.exports = {
   entry: './src/index.tsx',
   resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, '/dist'),
+    filename: 'static/[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true
   },
   devServer: {
@@ -47,10 +47,26 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp)$/i,
-        loader: 'file-loader',
-        options: {
-          name: 'static/[name].[ext]'
-        }
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: 'static/[name].[hash].[ext]' }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: { progressive: true },
+              optipng: { enabled: false },
+              pngquant: { quality: [0.65, 0.9] },
+              gifsicle: {
+                interlaced: false
+              },
+              webp: {
+                quality: 75
+              }
+            }
+          }
+        ]
       }
     ]
   },
